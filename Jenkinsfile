@@ -37,7 +37,7 @@ pipeline {
       steps {
         withAWS(credentials: 'aws-static', region: 'us-west-2') {
           echo 'Success'
-          sh 'kubectl config use-context jenkins-2@udacity-devops-capstone-b.us-west-2.eksctl.io'
+          sh 'kubectl config use-context jenkins@udacity-devops-capstone-b.us-west-2.eksctl.io'
           sh 'kubectl apply -f blue_controller.json'
           sh 'kubectl apply -f blue_green_service.json'
         }
