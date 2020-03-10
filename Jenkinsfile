@@ -6,6 +6,7 @@ pipeline {
         git 'https://github.com/rradi/udacity_devops_capstone_project.git'
       }
     }
+
     stage('Linting HTML') {
       steps {
         echo 'Linting Now...'
@@ -13,6 +14,7 @@ pipeline {
         sh 'tidy -q -e *.html'
       }
     }
+
     stage('Build Docker Image') {
       steps {
         echo 'Building...'
@@ -22,6 +24,7 @@ pipeline {
 
       }
     }
+
     stage('Deploy Image') {
       steps {
         echo 'Pushing Image...'
@@ -33,6 +36,7 @@ pipeline {
 
       }
     }
+
     stage('Hello AWS') {
       steps {
         withAWS(credentials: 'aws-static', region: 'us-west-2') {
@@ -44,16 +48,19 @@ pipeline {
 
       }
     }
+
     stage('Apply K8 File') {
       steps {
         echo 'Success'
       }
     }
+
     stage('Remove Unused docker image') {
       steps {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
+
   }
   environment {
     registry = 'rradi/udacity_devops_capstone_project'
@@ -61,4 +68,3 @@ pipeline {
     dockerImage = ''
   }
 }
-
