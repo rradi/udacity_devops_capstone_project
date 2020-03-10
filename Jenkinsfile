@@ -57,7 +57,7 @@ pipeline {
   }
   environment {
     registry = 'rradi/udacity_devops_capstone_project'
-    registryCredential = 'docker'
+    registryCredential = 'dockerhub'
     dockerImage = ''
   }
 }
