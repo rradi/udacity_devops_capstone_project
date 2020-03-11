@@ -41,8 +41,7 @@ pipeline {
       steps {
         withAWS(region: 'us-west2', credentials: 'aws-static') {
           sh '''
-          sudo eksctl create cluster           --name=udacity-devops-capstone          --version=1.12           --region=us-west-2           --zones=us-east-1a,us-east-1b,us-east-1c
-          --nodegroup-name=standard--workers           --node-type=t2.micro           --nodes=2           --nodes-min=1           --nodes-max=3           --node-ami=auto
+          sudo eksctl create cluster --name=udacity-devops-capstone --version=1.12 --region=us-west-2 --nodegroup-name=standard--workers           --node-type=t2.micro           --nodes=2           --nodes-min=1           --nodes-max=3           --node-ami=auto
           '''
           sh 'kubectl config use-context iam-root-account@udacity-devops-capstone.us-west-2.eksctl.io'
           sh 'kubectl apply -f blue_controller.json'
