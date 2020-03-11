@@ -37,27 +37,6 @@ pipeline {
       }
     }
 
-    stage('Hello AWS') {
-      steps {
-        withAWS(region: 'us-west-2', credentials: 'aws-static') {
-          sh 'eksctl delete cluster --region=us-west-2 --name=udacity-devops-capstone'
-        }
-
-      }
-    }
-
-    stage('Apply K8 File') {
-      steps {
-        echo 'Success'
-      }
-    }
-
-    stage('Remove Unused docker image') {
-      steps {
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-
   }
   environment {
     registry = 'rradi/udacity_devops_capstone_project'
