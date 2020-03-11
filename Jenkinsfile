@@ -41,6 +41,7 @@ pipeline {
       steps {
         withAWS(region: 'us-west-2', credentials: 'aws-static') {
           echo 'Success'
+          sh 'whoami'
           sh 'kubectl config get-contexts'
           sh 'kubectl config use-context iam-root-account@extravagant-creature-1583880539.us-west-2.eksctl.io'
           sh 'kubectl apply -f blue_controller.json'
