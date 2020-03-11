@@ -40,7 +40,7 @@ pipeline {
     stage('Hello AWS') {
       steps {
         withAWS(region: 'us-west-2', credentials: 'aws-static') {
-          sh 'eksctl create cluster --name=rradi-udacity-devops-capstone --version=1.12 --region=us-west-2 --nodegroup-name=standard--workers --node-type=t2.micro --nodes=2 --nodes-min=1 --nodes-max=3 --node-ami=auto'
+          sh 'eksctl create cluster --name=devops-capstone --version=1.12 --region=us-west-2 --nodegroup-name=standard--workers --node-type=t2.micro --nodes=2 --nodes-min=1 --nodes-max=3 --node-ami=auto'
         }
 
       }
