@@ -40,7 +40,7 @@ pipeline {
     stage('Hello AWS') {
       steps {
         withAWS(region: 'us-west-2', credentials: 'aws-static') {
-          sh 'eksctl delete cluster --region=us-west-2 --name=devops-capstone'
+          sh 'eksctl delete cluster --region=us-west-2 --name=udacity-devops-capstone'
         }
 
       }
