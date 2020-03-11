@@ -43,7 +43,7 @@ pipeline {
           echo 'Success'
           sh 'whoami'
           sh 'kubectl config get-contexts'
-          sh 'kubectl config use-context iam-root-account@extravagant-creature-1583880539.us-west-2.eksctl.io'
+          sh 'kubectl config use-context iam-root-account@udacity-devops-capstone.us-west-2.eksctl.io'
           sh 'kubectl apply -f blue_controller.json'
           sh 'kubectl apply -f blue_green_service.json'
         }
