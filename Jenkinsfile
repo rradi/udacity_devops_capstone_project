@@ -39,7 +39,7 @@ pipeline {
 
     stage('Hello AWS') {
       steps {
-        withAWS(region: 'us-west2', credentials: 'aws-static') {
+        withAWS(region: 'us-west-2', credentials: 'aws-static') {
           sh 'kubectl config use-context arn:aws:eks:us-west-2:877016300647:cluster/udacity-devops-capstone'
           sh 'kubectl apply -f blue_controller.json'
           sh 'kubectl apply -f blue_green_service.json'
