@@ -39,7 +39,7 @@ pipeline {
 
     stage('Hello AWS') {
       steps {
-        withAWS(region: 'us-east-1', credentials: 'aws-key') {
+        withAWS(region: 'us-west2', credentials: 'aws-static') {
           sh '''
           sudo eksctl create cluster           --name=udacity-devops-capstone          --version=1.12           --region=us-west-2           --zones=us-east-1a,us-east-1b,us-east-1c
           --nodegroup-name=standard--workers           --node-type=t2.micro           --nodes=2           --nodes-min=1           --nodes-max=3           --node-ami=auto
